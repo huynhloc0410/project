@@ -93,7 +93,7 @@ bool Graph::loadGraph(const string& filename, const string& direction) {
     for (int i = 0; i < numVertices; ++i) {
         extractedVertices[i] = -1.0;
         relaxedVertices[i] = -1.0;
-        predecessor[i] = -1;
+        predecessor[i] = 0;
         distance[i] = DOUBLE_MAX;
     }
 
@@ -170,7 +170,7 @@ void Graph::runDijkstra(int newSource, int destination, int flag) {
         extracted[i] = false;
         extractedVertices[i] = -1.0;
         relaxedVertices[i] = -1.0;
-        predecessor[i] = -1;
+        predecessor[i] = 0;
         distance[i] = DOUBLE_MAX;
     }
 
@@ -354,7 +354,7 @@ void Graph::printAdjacencyLists() {
         }
 
         // Print the predecessor value for the current vertex
-        cout << "Predecessor: " << predecessor[v];
+        cout << predecessor[v];
 
         // Move to the next line for the next vertex
         cout << endl;
